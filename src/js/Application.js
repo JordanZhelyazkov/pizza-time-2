@@ -37,12 +37,7 @@ export default class Application extends EventEmitter {
       } 
       document.querySelector(".main").appendChild(card.container);
     });
-    fillContent();
-    // document.querySelectorAll('.card-container').forEach(element => {
-    //   element.addEventListener('click', ()=> {
-    //          document.querySelector('.notifications').innerHTML= container;
-    //        })
-    //      })
+   
     
   
     this.emit(Application.events.READY);

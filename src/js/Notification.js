@@ -1,3 +1,4 @@
+import Card from './Card';
 import formatCurrency from './utils';
 export default class Notification {
   static get types() {
@@ -11,24 +12,29 @@ export default class Notification {
   constructor() {
     this.container = document.createElement("div");
     this.container.classList.add("notification-container");
+    this._card = new Card;
+    this._notification = new Notification;
+    
     
     
   }
+ 
+  
   clearContent(){
     if(this.container.innerHTML != ''){
       this.container.innerHTML = '';
     }
   }
-  fillContent(){
-    document.querySelectorAll('.card-container').forEach(pizza => {
-      pizza.addEventListener('click', ()=> {
-        pizza.render();
-      })
-    })
-  }
+  // fillContent(){
+  //   document.querySelectorAll('.card-container').forEach(pizza => {
+  //     pizza.addEventListener('click', ()=> {
+  //       pizza.render();
+  //     })
+  //   })
+  // }
   
   render() {
-    this.clearContent();
+    //this.clearContent();
     const template = `
 <div class="notification type-${this.types}">
   <button class="delete"></button>
