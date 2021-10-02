@@ -1,5 +1,5 @@
 import Card from './Card';
-import formatCurrency from './utils';
+import { formatCurrency } from './utils';
 export default class Notification {
   static get types() {
     return {
@@ -12,8 +12,7 @@ export default class Notification {
   constructor() {
     this.container = document.createElement("div");
     this.container.classList.add("notification-container");
-    this._card = new Card;
-    this._notification = new Notification;
+    
     
     
     
@@ -25,20 +24,13 @@ export default class Notification {
       this.container.innerHTML = '';
     }
   }
-  // fillContent(){
-  //   document.querySelectorAll('.card-container').forEach(pizza => {
-  //     pizza.addEventListener('click', ()=> {
-  //       pizza.render();
-  //     })
-  //   })
-  // }
   
-  render() {
-    //this.clearContent();
+  render(type, price) {
+    this.clearContent();
     const template = `
-<div class="notification type-${this.types}">
+<div class="notification type-${type}">
   <button class="delete"></button>
-  🍕 <span class="type">${this.types.type}</span> (<span class="price">${this.types.price}</span>) has been added to your order.
+  🍕 <span class="type">${type}</span> (<span class="price">${formatCurrency(price)}</span>) has been added to your order.
 </div>
     `;
     
